@@ -43,7 +43,6 @@ public class NbDecoder {
          this.counter_a = twoBitsBig(ans[19],ans[20]);
          this.counter_b = twoBitsBig(ans[21], ans[22]);
          this.sensor_status = ans[23];
-
     }
 
     public void printPayload(){
@@ -60,22 +59,7 @@ public class NbDecoder {
         System.out.println("Counter B: " + getCounter_b());
         System.out.println("Sensor Status: " + getSensor_status());
         System.out.println("\n");
-
     }
-/*
-        System.out.println("---NB-IOT---- TYPE 2 / 4 -----NB-IOT------");
-        System.out.println("Payload type: " + ans[0]);
-        System.out.println("Type Variant: " + ans[1]);
-        System.out.println("Device ID: " + sub2);
-        System.out.println("Device Status: " + ans[8]);
-        System.out.println("Battery Voltage: " + twoBitsBattery(ans[9],ans[10])/100);
-        System.out.println("RSSI Level: " + ans[11]);
-        System.out.println("Date (UTC) (YYMMDD) " + decToHexDate(ans[12],ans[13], ans[14], ans[15]));// BCD Binary Coded Decimal // 4 bytes
-        System.out.println("Time (UTC) (HHMMSS) " + decToHexTime(ans[16],ans[17], ans[18])); // BCD Binary Coded Decimal // 3 bytes
-        System.out.println("Counter A: " + twoBitsBig(ans[19],ans[20]));
-        System.out.println("Counter B: " + twoBitsBig(ans[21], ans[22]));
-        System.out.println("Sensor Status: " + ans[23]);
-         */
 
 
     static String decToHexTime(byte a, byte b, byte c) {
@@ -90,7 +74,6 @@ public class NbDecoder {
             //return Arrays.toString(bytes);
         //return String.format((new String(bytes)) + bytes + Arrays.toString(bytes) + Arrays.hashCode(bytes));
         //("0xF0 = FFF")
-
 
     }
 

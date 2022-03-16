@@ -6,13 +6,9 @@ public class Main extends NbDecoder{
 
         //String str-old = "02060004A30B00F6B5690800F80003000220060305E661";
 
-
         NbDecoder nb = new NbDecoder();
         nb.decoder("02040004A30B00F60800F802202203101144220003000220");
         nb.printPayload();
-
-
-        //System.out.println("DeviceID (0004A30B00F6) " + nb.getDevice_id().toUpperCase());
 
 
 /*
@@ -32,11 +28,12 @@ public class Main extends NbDecoder{
         System.out.println("Payload Counter: " + ans[22]);
 
  */
-
-        //'device_id': '0004A30B00F6',
-        //04ffffffa3b0fffffff6
-        //0004A30B00F6
-        //(00)04A3B0(00)F6
+        /*
+         'device_id': '0004A30B00F6',
+        04ffffffa3b0fffffff6
+        0004A30B00F6
+        (00)04A3B0(00)F6
+         */
     }
 }
 
