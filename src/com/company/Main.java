@@ -1,6 +1,6 @@
 package com.company;
 
-public class Main extends NbDecoder{
+public class Main extends NbDecoder {
 
     public static void main(String[] args) {
 
@@ -8,6 +8,10 @@ public class Main extends NbDecoder{
         NbDecoder nb = new NbDecoder();
         nb.decoder("02040004A30B00F60800F802202203101144220003000220");
         nb.printPayload();
+
+        NbPayloadGenerator nn = new NbPayloadGenerator();
+        nn.printGenerator();
+        nn.generator();
 
 
 /*

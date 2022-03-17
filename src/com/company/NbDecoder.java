@@ -6,17 +6,17 @@ import java.nio.ByteOrder;
 
 public class NbDecoder {
 
-    private int payload_type;
-    private int type_variant;
-    private int device_status;
-    private double battery_voltage;
-    private int rss_level;
-    private String date;
-    private String time;
-    private int counter_a;
-    private int counter_b;
-    private int sensor_status;
-    private String device_id;
+    public int payload_type;
+    public int type_variant;
+    public int device_status;
+    public double battery_voltage;
+    public int rssi_level;
+    public String date;
+    public String time;
+    public int counter_a;
+    public int counter_b;
+    public int sensor_status;
+    public String device_id;
 
 
     public void decoder(String str){
@@ -37,7 +37,7 @@ public class NbDecoder {
          this.device_id = deviceID;
          this.device_status = ans[8];
          this.battery_voltage = twoBitsBattery(ans[9],ans[10])/100;
-         this.rss_level = ans[11];
+         this.rssi_level = ans[11];
          this.date = decToHexDate(ans[12],ans[13],ans[14],ans[15]);
          this.time = decToHexTime(ans[16],ans[17],ans[18]);
          this.counter_a = twoBitsBig(ans[19],ans[20]);
@@ -52,7 +52,7 @@ public class NbDecoder {
         System.out.println("Device ID: " + getDevice_id());
         System.out.println("Device Status: " + getDevice_status());
         System.out.println("Battery Voltage: " + getBattery_voltage());
-        System.out.println("RSS Level: " + getRss_level());
+        System.out.println("RSSI Level: " + getRssi_level());
         System.out.println("Date (YYYYMMDD) : " + getDate());
         System.out.println("Time (HHMMSS) : " + getTime());
         System.out.println("Counter A: " + getCounter_a());
@@ -100,8 +100,8 @@ public class NbDecoder {
     public double getBattery_voltage(){
         return this.battery_voltage;
     }
-    public int getRss_level(){
-        return this.rss_level;
+    public int getRssi_level(){
+        return this.rssi_level;
     }
     public String getDate(){
         return this.date;
