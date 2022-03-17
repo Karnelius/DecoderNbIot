@@ -20,21 +20,21 @@ public class NbDecoder {
 
 
     public void decoder(String str){
-         //String sub = str.substring(4,16);
-         byte[] ans = new byte[str.length() / 2];
+       String deviceID = str.substring(4,16);
+        byte[] ans = new byte[str.length() / 2];
          for(int i=0; i< ans.length; i++){
              int index = i * 2;
              int val = Integer.parseInt(str.substring(index, index +2),16);
              ans[i] = (byte) val;
          }
-         varMethod(ans);
+         varMethod(ans,deviceID);
     }
 
 
-    private void varMethod(byte[] ans) {
+    private void varMethod(byte[] ans, String deviceID) {
          this.payload_type = ans[0];
          this.type_variant = ans[1];
-         this.device_id = deviceIdfromByte(ans[2], ans[3], ans[4], ans[5], ans[6], ans[7]);
+         this.device_id = deviceID;
          this.device_status = ans[8];
          this.battery_voltage = twoBitsBattery(ans[9],ans[10])/100;
          this.rss_level = ans[11];
@@ -65,23 +65,9 @@ public class NbDecoder {
     static String decToHexTime(byte a, byte b, byte c) {
         return Integer.toHexString(a)+Integer.toHexString(b)+Integer.toHexString(c);
     }
-
-    //Not finished ...
-    static String deviceIdfromByte(byte a, byte b, byte c, byte d, byte e, byte f) {
-        //return String.valueOf(a) + String.valueOf(b) + String.valueOf(c)+ String.valueOf(d)+ String.valueOf(e) + String.valueOf(f);
-        return "00"+Integer.toHexString(a)+Integer.toHexString(b)+Integer.toHexString(c)+Integer.toHexString(d)+Integer.toHexString(e)+Integer.toHexString(f);
-           //byte[] bytes = {a , b , c , d , e , f};
-            //return Arrays.toString(bytes);
-        //return String.format((new String(bytes)) + bytes + Arrays.toString(bytes) + Arrays.hashCode(bytes));
-        //("0xF0 = FFF")
-
-    }
-
-
     static String decToHexDate(byte a, byte b, byte c, byte d){
         return Integer.toHexString(a)+Integer.toHexString(b)+Integer.toHexString(c)+Integer.toHexString(d);
     }
-
     static short twoBitsBig(byte a, byte b){
         ByteBuffer bb = ByteBuffer.allocate(2);
         bb.order(ByteOrder.BIG_ENDIAN);
@@ -90,7 +76,6 @@ public class NbDecoder {
         short shortVal = bb.getShort(0);
         return shortVal;
     }
-
     static double twoBitsBattery(byte a, byte b){
         ByteBuffer bb = ByteBuffer.allocate(2);
         bb.order(ByteOrder.BIG_ENDIAN);
@@ -133,6 +118,4 @@ public class NbDecoder {
     public int getSensor_status(){
         return this.sensor_status;
     }
-
-
 }
