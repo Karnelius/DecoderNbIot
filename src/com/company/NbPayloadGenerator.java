@@ -50,6 +50,7 @@ public class NbPayloadGenerator {
         System.out.println(Arrays.toString(ans));
     }
 
+
     public String generatedHexStrTest(){
         String hexStr = //(Arrays.toString(payload_type.getBytes()) + "\n"
                         //+ Arrays.toString(type_variant.getBytes(StandardCharsets.UTF_8)) + "\n" +

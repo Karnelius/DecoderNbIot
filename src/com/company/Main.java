@@ -9,18 +9,23 @@ public class Main extends NbDecoder {
 //TODO ordna formatet på generatorn (byte 2 -> hex (-> str) , kunna lägga in hexStr i decodern så att servern printar hexStr + hexStr-decodad.
 
         NbDecoder nb = new NbDecoder();
-        nb.decoder("02040004A30B00F60800F802202203101144220003000220");
-        nb.printPayload();
+        //nb.decoder("02040004A30B00F60800F802202203101144220003000220");
+        //nb.printPayload();
 
 
 
         NbPayloadGenerator nn = new NbPayloadGenerator();
-        nn.generatedHexStr();
-        nn.printGenerator();
-        nn.generatedHexStr();
+        //nn.generatedHexStr();
+        //nn.printGenerator();
+        //nn.generatedHexStr();
 
         nn.Test(nn.generatedHexStr());
         nn.Test("02040004A30B00F60800F802202203101144220003000220");
+        System.out.println("-------------------------------");
+        nb.decoder(nn.generatedHexStr());
+        nb.printPayload();
+        nb.decoder("02040004A30B00F60800F802202203101144220003000220");
+        nb.printPayload();
 
 /*
    // UDP Client
