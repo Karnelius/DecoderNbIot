@@ -36,7 +36,7 @@ public class NbPayloadGenerator {
 
     public String generatedHexStr(){
         return payload_type + type_variant + device_id+ device_status + battery_voltage + rss_level+date+time+
-                        counter_a+counter_b+sensor_status;
+                        "00" +counter_a+"00"+counter_b+sensor_status;
     }
 
     public void Test(String str){
