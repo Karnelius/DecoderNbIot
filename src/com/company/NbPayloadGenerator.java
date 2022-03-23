@@ -7,8 +7,6 @@ import java.time.format.DateTimeFormatter;
 
 public class NbPayloadGenerator {
 
-    //"02040004A30B00F60800F802202203101144220003000220"
-    
     String typTwoFour = "02040004A30B00F60800F802202203101144220003000220";
 
     LocalDate datez = LocalDate.now();
@@ -31,10 +29,10 @@ public class NbPayloadGenerator {
          int counter_b= randomize();                                        //00 02 // gör om till hex -> 2 byte // problem då fel format
          String sensor_status = "20";                                                 //20
 
-
     public int randomize(){
         return (int) Math.floor(Math.random() * (max - min + 1) + min);
     }
+
 
     public String generatedHexStr(){
         String hexStr = (payload_type+ type_variant+
@@ -44,6 +42,11 @@ public class NbPayloadGenerator {
         //System.out.println("Generator hexStr " + hexStr);
         return hexStr;
     }
+
+    //ToDoHex -> ByteArray Str.
+    //public String generateHexStr(byte[] str){
+      //  return null;
+    //}
 
 
     public void printGenerator(){
@@ -60,11 +63,7 @@ public class NbPayloadGenerator {
         System.out.println("Counter B: " + counter_b);
         System.out.println("Sensor Status: " + sensor_status);
         System.out.println("\n");
-        System.out.println("Original hexStr  02040004A30B00F60800F802202203101144220003000220");
+        //System.out.println("Original hexStr  02040004A30B00F60800F802202203101144220003000220");
     }
-
-
-
-
 
 }

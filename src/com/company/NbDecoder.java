@@ -30,8 +30,7 @@ public class NbDecoder {
          varMethod(ans,deviceID);
     }
 
-
-    private void varMethod(byte[] ans, String deviceID) {
+    public void varMethod(byte[] ans, String deviceID) {
          this.payload_type = ans[0];
          this.type_variant = ans[1];
          this.device_id = deviceID;
@@ -60,7 +59,6 @@ public class NbDecoder {
         System.out.println("Sensor Status: " + getSensor_status());
         System.out.println("\n");
     }
-
 
     static String decToHexTime(byte a, byte b, byte c) {
         return Integer.toHexString(a)+Integer.toHexString(b)+Integer.toHexString(c);

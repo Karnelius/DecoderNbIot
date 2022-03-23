@@ -10,19 +10,21 @@ public class Main extends NbDecoder {
 
         NbDecoder nb = new NbDecoder();
         nb.decoder("02040004A30B00F60800F802202203101144220003000220");
-        //nb.printPayload();
-
-        NbPayloadGenerator nn = new NbPayloadGenerator();
-        //nn.printGenerator();
-        //nn.generatedHexStr();
+        nb.printPayload();
 
 
+       // NbPayloadGenerator nn = new NbPayloadGenerator();
+        // nn.printGenerator();
+       // nn.generatedHexStr();
 
-        // UDP Client
+/*
+   // UDP Client
         UdpClient client = new UdpClient();
         client.EchoClient();
         client.sendEcho(nn.generatedHexStr());
         client.close();
+
+ */
 
 
         //String str-old-v2-6 = "02060004A30B00F6B5690800F80003000220060305E661";
