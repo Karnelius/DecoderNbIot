@@ -69,10 +69,6 @@ public class NbPayloadGenerator {
         return hexStr;
     }
 
-    //ToDoHex -> ByteArray Str.
-    //public String generateHexStr(byte[] str){
-      //  return null;
-    //}
 
 
     public void printGenerator(){
