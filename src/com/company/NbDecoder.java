@@ -24,7 +24,8 @@ public class NbDecoder {
         byte[] ans = new byte[str.length() / 2];
          for(int i=0; i< ans.length; i++){
              int index = i * 2;
-             int val = Integer.parseInt(str.substring(index, index +2),16);
+             int val = Integer.parseInt(str.substring
+                     (index, index +2),16);
              ans[i] = (byte) val;
          }
          varMethod(ans,deviceID);

@@ -13,9 +13,11 @@ public class Main extends NbDecoder {
         nb.printPayload();
 
 
-       // NbPayloadGenerator nn = new NbPayloadGenerator();
-        // nn.printGenerator();
-       // nn.generatedHexStr();
+
+        NbPayloadGenerator nn = new NbPayloadGenerator();
+        nn.generatedHexStr();
+        nn.printGenerator();
+        nn.generatedHexStr();
 
 /*
    // UDP Client

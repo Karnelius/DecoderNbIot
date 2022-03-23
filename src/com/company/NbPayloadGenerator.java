@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class NbPayloadGenerator {
 
@@ -35,11 +36,27 @@ public class NbPayloadGenerator {
 
 
     public String generatedHexStr(){
-        String hexStr = (payload_type+ type_variant+
-                        device_id+device_status+battery_voltage+
-                        rss_level+date+time+
-                        "00" + counter_a + "00" +  counter_b + sensor_status);
-        //System.out.println("Generator hexStr " + hexStr);
+        return payload_type + type_variant + device_id+ device_status + battery_voltage + rss_level+date+time+
+                        counter_a+counter_b+sensor_status;
+    }
+
+
+    public String generatedHexStrTest(){
+        String hexStr = //(Arrays.toString(payload_type.getBytes()) + "\n"
+                        //+ Arrays.toString(type_variant.getBytes(StandardCharsets.UTF_8)) + "\n" +
+                        //Arrays.toString(device_id.getBytes(StandardCharsets.UTF_8)) + "\n"
+                        //+ Arrays.toString(device_status.getBytes(StandardCharsets.UTF_8)) + "\n"
+                        //+battery_voltage+
+                        //rss_level
+                        //+date
+                        //+time
+                        "\n"+
+                         Arrays.toString(("00" + counter_a).getBytes()) +"\n"
+                                 +counter_a + "\n"
+                        + Arrays.toString(("00" + counter_b).getBytes()) + "\n"
+                                + counter_b;
+                        //+ sensor_status);
+        System.out.println("Generator hexStr " + hexStr);
         return hexStr;
     }
 
