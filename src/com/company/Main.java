@@ -19,6 +19,9 @@ public class Main extends NbDecoder {
         nn.printGenerator();
         nn.generatedHexStr();
 
+        nn.Test(nn.generatedHexStr());
+        nn.Test("02040004A30B00F60800F802202203101144220003000220");
+
 /*
    // UDP Client
         UdpClient client = new UdpClient();

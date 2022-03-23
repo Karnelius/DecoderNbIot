@@ -1,6 +1,5 @@
 package com.company;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -40,6 +39,16 @@ public class NbPayloadGenerator {
                         counter_a+counter_b+sensor_status;
     }
 
+    public void Test(String str){
+        byte[] ans = new byte[str.length() / 2];
+        for(int i=0; i< ans.length; i++){
+            int index = i * 2;
+            int val = Integer.parseInt(str.substring
+                    (index, index +2),16);
+            ans[i] = (byte) val;
+        }
+        System.out.println(Arrays.toString(ans));
+    }
 
     public String generatedHexStrTest(){
         String hexStr = //(Arrays.toString(payload_type.getBytes()) + "\n"
