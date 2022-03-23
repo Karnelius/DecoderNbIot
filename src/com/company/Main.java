@@ -31,7 +31,7 @@ public class Main extends NbDecoder {
    // UDP Client
         UdpClient client = new UdpClient();
         client.EchoClient();
-        client.sendEcho("Test");
+        client.sendEcho("Test OK");
         client.close();
 
 
