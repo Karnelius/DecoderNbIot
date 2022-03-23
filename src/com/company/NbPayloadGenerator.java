@@ -6,23 +6,18 @@ import java.time.format.DateTimeFormatter;
 
 public class NbPayloadGenerator {
 
-
     //"02040004A30B00F60800F802202203101144220003000220"
-
-
+    
     String typTwoFour = "02040004A30B00F60800F802202203101144220003000220";
 
     LocalDate datez = LocalDate.now();
     LocalTime timez = LocalTime.now();
 
+    //TODO fixa så randomizern (?) returnerar alltid 2 bytes. Så vid >10 att det blir ex 02 iso 2 ... fel format annars.
+        int min = 10;
+        int max = 30;
 
-
-
-
-        int min = 1;
-        int max = 50;
-        //(int)Math.floor(Math.random()*(max-min+1)+min);                       //HEX
-
+        
          String payload_type = "02";                                                 //02
          String type_variant = "04";                                                 //04
          String device_id = "0004A30B00F6";                                                      //00 04 A3 0B 00 F6
@@ -31,16 +26,22 @@ public class NbPayloadGenerator {
          String rss_level = "02";                                                         //02
          String date = datez.format(DateTimeFormatter.ofPattern("yyyyMMdd"));                                                           //20 22 03 10
          String time = timez.format(DateTimeFormatter.ofPattern("HHmmss"));                                                           //11 44 22
-         int counter_a = 00 +(int)Math.floor(Math.random()*(max-min+1)+min);     //00 03
-         int counter_b= 00+(int)Math.floor(Math.random()*(max-min+1)+min);      //00 02
-         int sensor_status = (int)Math.floor(Math.random()*(max-min+1)+min);    //20
+         int counter_a = randomize();                                       //00 03 // gör om till hex -> 2 byte // problem då fel format
+         int counter_b= randomize();                                        //00 02 // gör om till hex -> 2 byte // problem då fel format
+         String sensor_status = "20";                                                 //20
 
-    public void generator(){
+
+    public int randomize(){
+        return (int) Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    public String generatedHexStr(){
         String hexStr = (payload_type+ type_variant+
                         device_id+device_status+battery_voltage+
                         rss_level+date+time+
-                        "00" + counter_a + "00" +counter_b+sensor_status);
-        System.out.println(hexStr);
+                        "00" + counter_a + "00" +  counter_b + sensor_status);
+        //System.out.println("Generator hexStr " + hexStr);
+        return hexStr;
     }
 
 
@@ -58,7 +59,7 @@ public class NbPayloadGenerator {
         System.out.println("Counter B: " + counter_b);
         System.out.println("Sensor Status: " + sensor_status);
         System.out.println("\n");
-        //System.out.println("02040004A30B00F60800F802202203101144220003000220");
+        System.out.println("Original hexStr  02040004A30B00F60800F802202203101144220003000220");
     }
 
 
