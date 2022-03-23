@@ -21,10 +21,11 @@ public class Main extends NbDecoder {
         nn.Test(nn.generatedHexStr());
         nn.Test("02040004A30B00F60800F802202203101144220003000220");
         System.out.println("-------------------------------");
-        nb.decoder(nn.generatedHexStr());
-        nb.printPayload();
         nb.decoder("02040004A30B00F60800F802202203101144220003000220");
         nb.printPayload();
+        nb.decoder(nn.generatedHexStr());
+        nb.printPayload();
+
 
 
    // UDP Client
