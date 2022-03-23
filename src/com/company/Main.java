@@ -6,7 +6,7 @@ public class Main extends NbDecoder {
 
     public static void main(String[] args) throws IOException {
 
-
+//TODO ordna formatet på generatorn (byte 2 -> hex (-> str) , kunna lägga in hexStr i decodern så att servern printar hexStr + hexStr-decodad.
 
         NbDecoder nb = new NbDecoder();
         nb.decoder("02040004A30B00F60800F802202203101144220003000220");
